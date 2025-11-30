@@ -1,0 +1,510 @@
+<!-- 
+Starter single-file portfolio (HTML/CSS/JS) — cleaned & formatted.
+How to use:
+1. Open this file in a browser to preview.
+2. Replace placeholder text/images with your own content.
+3. Commit to a GitHub repo and enable GitHub Pages (Settings → Pages → Source: main branch / root).
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nikhil Waghmare — Game Designer &amp; Developer</title>
+  <meta name="description" content="Portfolio of Nikhil Waghmare — Game Designer.">
+
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+
+  <style>
+    /* ----------------- Theme variables ----------------- */
+    :root{
+      --bg-color: #ffffff; /* page background (white) */
+      --text-color: #000000; /* near-black for better contrast */
+      --muted: #000000;
+      /* desaturated sky-blue panel colors */
+      --card-gradient-1: #a9b7b3; /* very light sky */
+      --card-gradient-2: #3E4E48; /* soft desaturated sky */
+      --panel-gradient: linear-gradient(180deg, #a9b7b3, #3E4E48);
+      --accent-blue: #3E4E48; /* softer blue for accents */
+      --main-color: #73CFD5; /* used for buttons/links */
+      color-scheme: light;
+    }
+
+    /* ----------------- Base reset ----------------- */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, 'Courier New', monospace;background:url('asset/Image/Background4.png') center/cover no-repeat fixed, rgba(0,0,0,0.35) !important;color:var(--text-color);scroll-behavior:smooth;color:var(--text-color)}
+    a{color:inherit;text-decoration:none
+} 
+    a{color:inherit;text-decoration:none}
+
+    /* custom scrollbar (Chromium) */
+    ::-webkit-scrollbar{width:12px;height:12px}
+    ::-webkit-scrollbar-thumb{background:var(--accent-blue);border-radius:8px}
+    ::-webkit-scrollbar-track{background:transparent}
+
+    /* ----------------- Header ----------------- */
+    header{position:sticky;top:0;z-index:40;background:var(--panel-gradient);backdrop-filter:blur(6px);border-bottom:1px solid rgba(11,18,32,0.04)}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:48px;height:48px;border-radius:8px;background:#ffffff;color:var(--text-color);display:flex;align-items:center;justify-content:center;font-weight:800;border:1px solid rgba(11,18,32,0.06)}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{font-weight:600;color:var(--text-color);font-size:15px}
+    .cta{padding:8px 12px;border-radius:10px;background:var(--main-color);color:#fff;font-weight:700;border:1px solid rgba(0,0,0,0.04)}
+
+    /* mobile menu */
+    .menu-btn{display:none}
+    @media(max-width:880px){nav ul{display:none}.menu-btn{display:block}}
+
+    /* ----------------- Hero ----------------- */
+    .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:80px 16px;min-height:85vh;text-align:center;background:url('asset/Image/Background4.png') center/cover no-repeat; filter:brightness(0.75);background-size:cover;background-position:center;border-radius:12px;margin:18px 0;}
+    .hero h1{font-size:40px;line-height:1;margin:0;font-weight:900;color:#ffffff !important;text-shadow:0 0 18px rgba(0,0,0,0.55),0 0 32px rgba(0,0,0,0.35),0 0 4px rgba(0,0,0,0.9);} 
+    .hero h2{font-size:18px;margin:6px 0 0 0;color:#ffffff !important;font-weight:700;text-shadow:0 0 14px rgba(0,0,0,0.55),0 0 22px rgba(0,0,0,0.35);} 
+    .hero p{color:#ffffff !important;max-width:760px;margin:12px auto;font-size:16px;text-shadow:0 0 12px rgba(0,0,0,0.55),0 0 20px rgba(0,0,0,0.35);} 
+    .hero .hero-actions{margin-top:14px;display:flex;gap:12px;align-items:center;justify-content:center}
+    .hero .btn-primary,.hero .btn-secondary{padding:10px 18px;border-radius:24px;border:none;color:#fff;font-weight:700;cursor:pointer;transition:transform .18s,box-shadow .18s}
+    .hero .btn-primary{background:var(--main-color);box-shadow:0 8px 24px rgba(127,188,230,0.12)}
+    .hero .btn-secondary{background:#2d6f90}
+    .hero .btn-primary:hover,.hero .btn-secondary:hover{transform:translateY(-3px) scale(1.02)}
+
+    /* ----------------- Sections & layout ----------------- */
+    section{padding:36px 0}
+    h2.section-title{font-size:18px;margin:0 0 12px 0}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:start}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+
+    /* ----------------- Card / Project visuals ----------------- */
+    .card{position:relative;overflow:hidden;background:var(--panel-gradient);padding:14px;border-radius:12px;border:1px solid rgba(11,18,32,0.04);box-shadow:0 6px 20px rgba(11,18,32,0.04);transition:transform .32s cubic-bezier(.2,.9,.3,1),box-shadow .32s}
+    .card:hover{transform:translateY(-10px) scale(1.015);box-shadow:0 30px 60px rgba(11,18,32,0.06)}
+
+    /* image sizing: fixed height with cover to keep uniform layout */
+    .card img{width:100%;height:260px;object-fit:cover;border-radius:8px;display:block}
+
+    .project-title{font-weight:700;margin:10px 0;font-size:18px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* overlay / ripple */
+    .card .ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,0.5);animation:ripple 600ms ease-out;pointer-events:none}
+    @keyframes ripple{to{transform:scale(4);opacity:0}}
+
+    /* modal base styles (larger panel, images stacked vertically with fixed max height) */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(4,6,12,0.75);display:none;align-items:center;justify-content:center;z-index:99999;padding:20px} .modal-backdrop.visible{display:flex} 
+.modal-backdrop.visible{display:flex}
+
+/* Modal panel: distinct background panel + padding + rounded */
+.modal{background:var(--panel-gradient);max-width:1100px;width:100%;border-radius:18px;padding:28px;border:2px solid rgba(0,0,0,0.16);box-shadow:0 24px 80px rgba(0,0,0,0.28);color:var(--text-color);max-height:90vh;overflow-y:auto;position:relative;z-index:100000} 
+
+/* Gallery: stack images vertically but limit size for readability */
+.modal .modal-gallery{display:flex;flex-direction:column;gap:14px;margin-top:12px;padding:6px}
+.modal .modal-gallery img{width:100%;max-height:780px;object-fit:cover;border-radius:10px;background:#ffffff;padding:6px;box-shadow:0 6px 20px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.06)}
+
+    /* contact form */
+    .contact-form input,.contact-form textarea{width:100%;padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(11,18,32,0.06);color:var(--text-color);margin-top:8px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:640px){.contact-grid{grid-template-columns:1fr}}
+
+    footer{padding:28px 0;color:#ffffff !important;}
+
+    /* small responsive tweaks */
+    @media (max-width:640px){
+      .card img{height:44vw}
+      .hero h1{font-size:28px}
+      .hero p{font-size:14px}
+    }
+
+    /* Artistic buttons + comic font headings */
+  @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+  h1, h2, h3, .project-title, .modal-title {
+    font-family: 'Comic Neue', cursive !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(0,0,0,0.6) !important;
+}
+
+  .btn-primary, .btn-secondary, .cta, .btn-ghost {
+    border-radius: 14px !important;
+    padding: 12px 22px !important;
+    font-family: 'Comic Neue', cursive !important;
+    font-weight: 700 !important;
+    border: 2px solid rgba(0,0,0,0.15) !important;
+    background: #73CFD5 !important;
+    color: #0b1220 !important;
+    transition: 0.25s ease-in-out !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12) !important;
+  }
+
+  .btn-primary:hover, .btn-secondary:hover, .cta:hover, .btn-ghost:hover {
+    transform: translateY(-4px) scale(1.04) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18) !important;
+    background: #73CFD5 !important;
+  }
+
+  /* Close (X) button artistic */
+  .close-btn {
+    font-family: 'Comic Neue', cursive !important;
+    font-size: 22px !important;
+    background: #fff !important;
+    border-radius: 50% !important;
+    width: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #3E4E48 !important;
+    color: #0b1220 !important;
+    cursor: pointer !important;
+    transition: 0.25s ease-in-out !important;
+  }
+
+  .close-btn:hover {
+    background: #74b6e6 !important;
+    color: white !important;
+    transform: rotate(8deg) scale(1.1) !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2) !important;
+  }
+
+  /* Large doodle pointers */
+  .section-doodle{
+    position:absolute;
+    width:120px;
+    opacity:0.9;
+    pointer-events:none;
+    transform-origin:center;
+    will-change:transform,opacity;
+    /* animated wiggle / bounce */
+    animation: wiggleBounce 1.1s ease-in-out infinite;
+  }
+  .doodle-left{left:-140px;top:10px;transform:rotate(-10deg);}  
+  .doodle-right{right:-140px;top:10px;transform:rotate(10deg);}  
+
+  @keyframes wiggleBounce{
+    0%{ transform: translateY(0px) rotate(-6deg) scale(1); }
+    25%{ transform: translateY(-6px) rotate(0deg) scale(1.02); }
+    50%{ transform: translateY(0px) rotate(6deg) scale(1); }
+    75%{ transform: translateY(-4px) rotate(0deg) scale(1.01); }
+    100%{ transform: translateY(0px) rotate(-6deg) scale(1); }
+  }
+
+  /* pause animation when user hovers (for subtle control) */
+  .section-doodle:hover{ animation-play-state:paused; }
+  
+  .doodle-left{left:-140px;top:10px;transform:rotate(-10deg);}  
+  .doodle-right{right:-140px;top:10px;transform:rotate(10deg);}  
+
+.modal-title{font-size:32px !important;text-align:center !important;width:100% !important;display:block !important;}
+.modal-header{display:flex !important;align-items:center !important;justify-content:center !important;position:relative !important;margin-bottom:12px !important;}
+.modal-header .close-btn{position:absolute !important;right:10px !important;top:50% !important;transform:translateY(-50%) !important;}
+</style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        
+        <div>
+          <div style="font-weight:700;font-size:12px;">NIKHIL WAGHMARE</div>
+          <div style="font-size:12px;color:#ffffff;margin-top:2px">Game Designer </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#work">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="cta" href="#contact">Hire me</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-btn btn-ghost" aria-expanded="false" onclick="toggleMenu(this)">Menu</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero reveal" style="position:relative;background:url('asset/Image/RoomBG final.png') center/cover no-repeat; filter:brightness(0.88);">
+
+  <!-- Global dark tint for hero background -->
+  
+
+  <!-- RoomBG overlay panel on top (slightly darker) -->
+  
+
+  <div style="position:absolute;left:40px;top:38%;display:flex;flex-direction:column;gap:14px;z-index:5;">
+    <a href="https://www.linkedin.com/in/nikhil-waghmare-08aab5288/" target="_blank" title="LinkedIn" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;text-decoration:none"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.youtube.com/@YOURCHANNEL" target="_blank" title="YouTube" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;text-decoration:none"><i class="fab fa-youtube"></i></a>
+    <a href="https://desnik.itch.io/" target="_blank" title="Games" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;text-decoration:none"><i class="fas fa-gamepad"></i></a>
+  </div>
+
+  <div style="z-index:99;position:relative;">
+    <h1 style="text-shadow: 0 0 14px #000, 0 0 22px #000, 0 0 4px #000; color:#ffffff !important; position:relative; z-index:200;">Hi, It's <span style="font-weight:900; color:#ffffff !important; text-shadow:0 0 18px #000;">Nikhil Waghmare</span></h1>
+    <h2>I'm a Game Designer</h2>
+    <p>I’m a Game Designer who loves creating stuff that makes players go “one more try!” </p>
+
+    <div class="hero-actions">
+      <a class="btn-primary" href="#projects">My Projects</a>
+      <a class="btn-secondary" href="asset/resume/NikhilWaghmare_GameDesign_CV.pdf" target="_blank">Download CV</a>
+    </div>
+  </div>
+</section>
+
+    <section id="about" class="reveal">
+      <div style="position:relative">
+  <img class="section-doodle doodle-left" src="asset/doodles/controller-outline.svg" alt="doodle">
+  <h2 class="section-title">About</h2>
+</div>
+      <div class="card">
+        <p>I’m a Game Designer specializing in Systems Design, Level Design, Core Game Design, and clear, structured Documentation. My focus is on crafting gameplay that feels intuitive, rewarding, and deeply connected to the player experience. I combine creative thinking with systematic design to build mechanics that are balanced, meaningful, and fun to master.</p>
+
+ <p>Whether I’m designing a level flow, tuning a gameplay loop, or creating documentation that aligns the entire team, my goal is always the same—deliver an experience that is smooth, engaging, and easy for players to understand, yet exciting for them to explore. I care about how players think, react, and interact, which helps me design worlds, systems, and challenges that feel purposeful and memorable..</p>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <div class="muted" style="display:flex; flex-direction:column; gap:4px; margin-top:12px">
+  <div>• Level Design</div>
+  <div>• Puzzle Design</div>
+  <div>• Unity</div>
+  <div>• GDD Documentation</div>
+  <div>• Prototyping</div>
+</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <div style="position:relative">
+  <img class="section-doodle doodle-right" src="asset/doodles/controller-outline.svg" alt="doodle">
+  <h2 class="section-title">Projects</h2>
+</div>
+      <div class="grid">
+        <article class="card" onclick="openModal('tatya')" style="cursor:pointer">
+          <img src="asset/Image/Tatya/TatyaGamePoster.jpg" alt="Tatya Poster">
+          <div class="project-title">Tatya — Puzzle/Horror</div>
+          <div class="muted">Team Project</div>
+        </article>
+
+        <article class="card" onclick="openModal('be-my-guest')" style="cursor:pointer">
+          <img src="asset/Image/placeholder-be-my-guest.png" alt="Be My Guest">
+          <div class="project-title">Be My Guest — Coming Soon</div>
+          <div class="muted">Team Project</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="reveal">
+      <div style="position:relative">
+  <img class="section-doodle doodle-left" src="asset/doodles/controller-outline.svg" alt="doodle">
+  <h2 class="section-title">Experience</h2>
+</div>
+
+      <div class="card" style="margin-bottom:16px">
+        <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
+          <div style="flex:1;min-width:240px">
+            <div style="font-weight:700">Game Design Intern — EaseWin</div>
+            <div class="muted">Nov 2025 — Present</div>
+            <ul style="margin-top:8px;color:var(--text-color);font-size:14px;max-width:700px;padding-left:18px;list-style:disc;">
+              <li>Pitched original game concepts to the team and stakeholders.</li>
+              <li>Created clear and complete GDDs for gameplay, levels, and systems.</li>
+              <li>Designed levels and puzzles with balanced difficulty and flow.</li>
+            </ul>
+          </div>
+          <div style="min-width:180px" class="muted">Tasks: GDD, Level Design, Puzzle Design, Team Management</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
+          <div style="flex:1;min-width:240px">
+            <div style="font-weight:700">Game Design Intern — Resurgence Interactive</div>
+            <div class="muted">Jun 2025 — Jul 2025</div>
+            <ul style="margin-top:8px;color:var(--text-color);font-size:14px;max-width:700px;padding-left:18px;list-style:disc;">
+              <li>Designed and balanced core vehicle mechanics improving playtest engagement by 30%.</li>
+              <li>Created detailed system design docs for car stats, speed curves, and upgrade formulas.</li>
+              <li>Collaborated across design and programming to maintain design integrity during implementation.</li>
+            </ul>
+          </div>
+          <div style="min-width:180px" class="muted">Tasks: GDD, Level Design, Team Coordination</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div style="position:relative">
+  <img class="section-doodle doodle-right" src="asset/doodles/controller-outline.svg" alt="doodle">
+  <h2 class="section-title">Contact</h2>
+</div>
+      <div class="card contact-form">
+        <form action="mailto:your@email.com" method="POST" enctype="text/plain">
+          <div class="contact-grid">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Email" required>
+          </div>
+          <input type="text" name="subject" placeholder="Subject" style="margin-top:12px">
+          <textarea name="message" placeholder="Message" rows="6" style="margin-top:12px"></textarea>
+          <div style="margin-top:12px;display:flex;gap:8px;justify-content:flex-end">
+            <button type="submit" class="cta">Send</button>
+            <button type="reset" class="btn-ghost">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Project modals -->
+  <div id="modal-tatya" class="modal-backdrop" aria-hidden="true" onclick="backdropClick(event,'tatya')">
+    <div class="modal" role="dialog" aria-labelledby="modal-tatya-title">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-tatya-title">Tatya — Puzzle/Horror</div>
+        <button class="close-btn" onclick="closeModal('tatya')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="muted">Game Designer · GDD · Level &amp; Puzzle Design</div>
+        <h3 style="margin-top:12px">Game Brief</h3>
+        <p style="margin-top:6px">We are cursed by a Saadhu in the past, and now we have come to Tatya to ask him to free us (as Saadhu mentioned the solution to the curse lies to Tatya). Instead, he asks the player to help him escape from the place — the ropes tied magically around him. The player must explore, solve item-based riddles, and retrieve relics to free him.</p>
+
+        <h3 style="margin-top:14px">Task</h3>
+        <ul style="margin-top:8px; padding-left:18px; line-height:1.6">
+           <li>Pitched the concept to the team.</li>
+          <li>Designed core puzzles and item-based progression systems.</li>
+          <li>Created detailed GDD and level layouts for mansion zones.</li>
+          <li>Implemented player flow, fail states, and checkpoint logic.</li>
+          <li>Balanced difficulty and pacing across early to late game.</li>
+        </ul>
+
+        <div class="links" style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+          
+          <a class="btn-ghost" href="#" id="tatya-download">Download Game</a>
+          <a class="btn-ghost" href="asset/PDF/Tatya-Design-and-Development-Process.pdf" download>Document (PDF)</a>
+        </div>
+
+        <!-- Embedded gameplay video (plays above images) -->
+        <div style="margin-top:16px;">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.2);">
+            <iframe id="tatya-video" src="https://www.youtube.com/embed/C7iebICbj2E" title="Tatya Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:10002;"></iframe>
+          </div>
+        </div>
+
+        <div class="modal-gallery" style="margin-top:18px">
+          <img src="asset/Image/Tatya/Tatyaimg1.png" alt="Tatya 1" onclick="openImage(this.src)">
+          <img src="asset/Image/Tatya/Tatyaimg2.png" alt="Tatya 2" onclick="openImage(this.src)">
+          <img src="asset/Image/Tatya/Tatyaimg3.png" alt="Tatya 3" onclick="openImage(this.src)">
+          <img src="asset/Image/Tatya/Tatyaimg4.png" alt="Tatya 4" onclick="openImage(this.src)">
+          <img src="asset/Image/Tatya/Tatyaimg5.png" alt="Tatya 5" onclick="openImage(this.src)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-be-my-guest" class="modal-backdrop" aria-hidden="true" onclick="backdropClick(event,'be-my-guest')">
+    <div class="modal" role="dialog" aria-labelledby="modal-be-my-guest-title">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-be-my-guest-title">Be My Guest — Coming Soon</div>
+        <button class="close-btn" onclick="closeModal('be-my-guest')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="muted">Design Lead · Talk-show simulation</div>
+        <p style="margin-top:10px">Be My Guest is a talk-show simulation where you manage guests, TRP, and live segments. Concept art and early prototypes shown here.</p>
+        <div class="modal-gallery">
+          <img src="asset/Image/placeholder-be-my-guest-1.png" alt="Be My Guest 1" onclick="openImage(this.src)">
+          <img src="asset/Image/placeholder-be-my-guest-2.png" alt="Be My Guest 2" onclick="openImage(this.src)">
+        </div>
+        <div class="links" style="margin-top:12px">
+          <a class="cta" href="#" target="_blank">Design Notes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image lightbox -->
+  <div id="lightbox" class="modal-backdrop" aria-hidden="true" onclick="closeLightbox()">
+    <div class="modal" style="max-width:1000px;">
+      <button class="close-btn" onclick="closeLightbox()">✕</button>
+      <img id="lightbox-img" src="" alt="" style="width:100%;border-radius:8px;margin-top:8px">
+    </div>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>&copy; <span id="year"></span> Nikhil Waghmare — Game Designer</div>
+          </div>
+  </footer>
+
+  <script>
+    // small scripts: year, mobile menu toggle, reveal on scroll, modal, lightbox, cards
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMenu(button){
+      const open = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', (!open).toString());
+      const nav = document.querySelector('nav ul');
+      if(nav) nav.style.display = open ? 'flex' : 'none';
+    }
+
+    // reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target)} })
+    }, {threshold:0.12});
+    revealEls.forEach(el=>observer.observe(el));
+
+    // Modal controls
+    function openModal(id){
+      const el = document.getElementById('modal-'+id);
+      if(!el) return;
+      el.classList.add('visible');
+      el.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id){
+      const el = document.getElementById('modal-'+id);
+      if(!el) return;
+      el.classList.remove('visible');
+      el.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+    function backdropClick(evt,id){ if(evt.target.id === 'modal-'+id) closeModal(id); }
+
+    // Lightbox
+    function openImage(src){ const lb = document.getElementById('lightbox'); const img = document.getElementById('lightbox-img'); img.src = src; lb.classList.add('visible'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function closeLightbox(){ const lb = document.getElementById('lightbox'); lb.classList.remove('visible'); lb.setAttribute('aria-hidden','true'); document.getElementById('lightbox-img').src=''; document.body.style.overflow=''; }
+
+    // keyboard close (Esc)
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ document.querySelectorAll('.modal-backdrop.visible').forEach(m=>{m.classList.remove('visible'); m.setAttribute('aria-hidden','true')}); document.body.style.overflow=''; }});
+
+    // Card interaction scripts: ripple click + subtle tilt based on cursor
+    (function(){
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card=>{
+        // ripple on click
+        card.addEventListener('click', function(e){
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const ripple = document.createElement('span');
+          ripple.className = 'ripple';
+          ripple.style.left = (x - 10) + 'px';
+          ripple.style.top = (y - 10) + 'px';
+          ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) * 0.25 + 'px';
+          card.appendChild(ripple);
+          setTimeout(()=>{ ripple.remove(); }, 700);
+        });
+
+        // subtle 3D tilt based on mouse position
+        card.addEventListener('mousemove', function(e){
+          const rect = card.getBoundingClientRect();
+          const px = (e.clientX - rect.left) / rect.width;
+          const py = (e.clientY - rect.top) / rect.height;
+          const rx = (py - 0.5) * 6; // rotateX
+          const ry = (px - 0.5) * -6; // rotateY
+          card.style.transform = `translateY(-8px) scale(1.02) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+        card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+      });
+    })();
+  </script>
+</body>
+</html>
