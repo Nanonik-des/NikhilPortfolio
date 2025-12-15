@@ -355,49 +355,158 @@ How to use:
   </main>
 
   <!-- Project modals -->
-  <div id="modal-tatya" class="modal-backdrop" aria-hidden="true" onclick="backdropClick(event,'tatya')">
-    <div class="modal" role="dialog" aria-labelledby="modal-tatya-title">
-      <div class="modal-header">
-        <div class="modal-title" id="modal-tatya-title">Tatya — Puzzle/Horror</div>
-        <button class="close-btn" onclick="closeModal('tatya')">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="muted">Game Designer · GDD · Level &amp; Puzzle Design</div>
-        <h3 style="margin-top:12px">Game Brief</h3>
-        <p style="margin-top:6px">We are cursed by a Saadhu in the past, and now we have come to Tatya to ask him to free us (as Saadhu mentioned the solution to the curse lies to Tatya). Instead, he asks the player to help him escape from the place — the ropes tied magically around him. The player must explore, solve item-based riddles, and retrieve relics to free him.</p>
+<!-- ================= TATYA MODAL ================= -->
+<div id="modal-tatya" class="modal-backdrop" aria-hidden="true" onclick="backdropClick(event,'tatya')">
+  <div class="modal" role="dialog" aria-labelledby="modal-tatya-title">
 
-        <h3 style="margin-top:14px">Task</h3>
-        <ul style="margin-top:8px; padding-left:18px; line-height:1.6">
-           <li>Pitched the concept to the team.</li>
-          <li>Designed core puzzles and item-based progression systems.</li>
-          <li>Created detailed GDD and level layouts for mansion zones.</li>
-          <li>Implemented player flow, fail states, and checkpoint logic.</li>
-          <li>Balanced difficulty and pacing across early to late game.</li>
-        </ul>
+    <!-- Header -->
+    <div class="modal-header">
+      <div class="modal-title" id="modal-tatya-title">Tatya — Puzzle / Horror</div>
+      <button class="close-btn" onclick="closeModal('tatya')">✕</button>
+    </div>
 
-        <div class="links" style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-          
-          <a class="btn-ghost" href="#" id="tatya-download">Download Game</a>
-          <a class="btn-ghost" href="asset/PDF/Tatya-Design-and-Development-Process.pdf" download>Document (PDF)</a>
+    <div class="modal-body">
+      <div class="muted">Game Designer · GDD · Level & Puzzle Design</div>
+
+      <!-- ================= Game Brief ================= -->
+      <h3 style="margin-top:14px;">Game Brief</h3>
+      <p style="margin-top:6px;">
+        We are cursed by a Saadhu and seek Tatya’s help to break it. Instead, Tatya asks the
+        player to free him from magical bindings created by a tantrik. The player explores
+        the environment, solves item-based riddles, and retrieves key objects to help Tatya escape.
+      </p>
+
+      <!-- ================= Responsibilities ================= -->
+      <h3 style="margin-top:14px;">My Role</h3>
+      <ul style="margin-top:8px; padding-left:18px; line-height:1.6">
+        <li>Pitched and owned the core concept</li>
+        <li>Created the complete GDD</li>
+        <li>Designed puzzles, riddles, and progression flow</li>
+        <li>Planned level layouts and checkpoints</li>
+        <li>Handled iteration and late-stage redesign</li>
+      </ul>
+
+      <!-- ================= Gameplay Video ================= -->
+      <div style="margin-top:18px;">
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
+          <iframe src="https://www.youtube.com/embed/C7iebICbj2E"
+            title="Tatya Gameplay"
+            frameborder="0"
+            allowfullscreen
+            style="position:absolute;top:0;left:0;width:100%;height:100%;">
+          </iframe>
         </div>
+      </div>
 
-        <!-- Embedded gameplay video (plays above images) -->
-        <div style="margin-top:16px;">
-          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.2);">
-            <iframe id="tatya-video" src="https://www.youtube.com/embed/C7iebICbj2E" title="Tatya Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:10002;"></iframe>
+      <!-- ================= Phase 1 ================= -->
+      <div style="margin-top:36px;">
+        <h3>Design Process — Phase 1: Initial Pitch</h3>
+
+        <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:14px;align-items:center;">
+          <div>
+            <p>
+              Tatya began as a semester-long college project with a mixed team of developers,
+              an artist, and myself as the game designer. During ideation, most concepts leaned
+              toward familiar genres like shooters and tower defense.
+            </p>
+            <p style="margin-top:8px;">
+              I intentionally pitched a different idea with a controlled scope. The original
+              concept trapped the player in a room with Tatya, where riddles dictated which
+              items had to be assembled and delivered.
+            </p>
+            <p style="margin-top:8px;">
+              After faculty feedback, the concept was expanded into a puzzle-horror experience.
+              Through iteration and communication, the team aligned around a focused and
+              distinctive vision that became <strong>Tatya</strong>.
+            </p>
+          </div>
+
+          <img src="asset/Image/Tatya/phase1-pitch-poll.png"
+            alt="Initial Pitch"
+            style="width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.25);">
+        </div>
+      </div>
+
+      <!-- ================= Phase 2 ================= -->
+      <div style="margin-top:36px;">
+        <h3>Design Process — Phase 2: Design & Documentation</h3>
+
+        <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-top:14px;align-items:flex-start;">
+          <div>
+            <p>
+              Before production, I created a detailed Game Design Document (GDD) covering
+              core mechanics, progression structure, puzzle systems, and gameplay rules.
+            </p>
+            <p style="margin-top:10px;">
+              I designed multiple puzzles, created annotated 2D layouts for level flow,
+              wrote all in-game dialogues and riddles, and storyboarded the opening and
+              ending cutscenes.
+            </p>
+            <p style="margin-top:10px;">
+              I also developed Tatya’s character design to ensure narrative, tone, and
+              gameplay aligned from the start.
+            </p>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <img src="asset/Image/Tatya/design1.png" style="width:100%;border-radius:10px;">
+            <img src="asset/Image/Tatya/design2.png" style="width:100%;border-radius:10px;">
+            <img src="asset/Image/Tatya/design3.png" style="width:100%;border-radius:10px;">
+            <img src="asset/Image/Tatya/design4.png" style="width:100%;border-radius:10px;">
           </div>
         </div>
-
-        <div class="modal-gallery" style="margin-top:18px">
-          <img src="asset/Image/Tatya/Tatyaimg1.png" alt="Tatya 1" onclick="openImage(this.src)">
-          <img src="asset/Image/Tatya/Tatyaimg2.png" alt="Tatya 2" onclick="openImage(this.src)">
-          <img src="asset/Image/Tatya/Tatyaimg3.png" alt="Tatya 3" onclick="openImage(this.src)">
-          <img src="asset/Image/Tatya/Tatyaimg4.png" alt="Tatya 4" onclick="openImage(this.src)">
-          <img src="asset/Image/Tatya/Tatyaimg5.png" alt="Tatya 5" onclick="openImage(this.src)">
-        </div>
       </div>
+
+      <!-- ================= Phase 4 ================= -->
+      <div style="margin-top:36px;">
+        <h3>Design Process — Phase 4: Iteration & Challenges</h3>
+
+        <p style="margin-top:12px;">
+          During production, systems were implemented in parallel. My focus was to maintain
+          puzzle logic, spatial flow, and narrative consistency as individual mechanics came together.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0;">
+          <img src="asset/Image/Tatya/phase4_1.png" style="width:100%;border-radius:10px;">
+          <img src="asset/Image/Tatya/phase4_2.png" style="width:100%;border-radius:10px;">
+          <img src="asset/Image/Tatya/phase4_3.png" style="width:100%;border-radius:10px;">
+        </div>
+
+        <p>
+          A major disruption occurred when the environment no longer matched the original
+          layouts, breaking puzzle dependencies tied to spatial logic.
+        </p>
+        <p style="margin-top:8px;">
+          I redesigned puzzle flows and progression paths to fit the new space, prioritizing
+          clarity and completion under strict time constraints.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0;">
+          <img src="asset/Image/Tatya/phase4_4.png" style="width:100%;border-radius:10px;">
+          <img src="asset/Image/Tatya/phase4_5.png" style="width:100%;border-radius:10px;">
+          <img src="asset/Image/Tatya/phase4_6.png" style="width:100%;border-radius:10px;">
+        </div>
+
+        <p>
+          The planned checkpoint system was lost during restructuring, later surfacing as
+          the biggest usability issue during testing. This reinforced the importance of
+          protecting core player-experience systems during late-stage iteration.
+        </p>
+      </div>
+
+      <!-- ================= Gallery ================= -->
+      <div class="modal-gallery" style="margin-top:20px;">
+        <img src="asset/Image/Tatya/Tatyaimg1.png">
+        <img src="asset/Image/Tatya/Tatyaimg2.png">
+        <img src="asset/Image/Tatya/Tatyaimg3.png">
+        <img src="asset/Image/Tatya/Tatyaimg4.png">
+        <img src="asset/Image/Tatya/Tatyaimg5.png">
+      </div>
+
     </div>
   </div>
+</div>
+<!-- ================= END ================= -->
 
   <div id="modal-be-my-guest" class="modal-backdrop" aria-hidden="true" onclick="backdropClick(event,'be-my-guest')">
     <div class="modal" role="dialog" aria-labelledby="modal-be-my-guest-title">
