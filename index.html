@@ -493,6 +493,95 @@ How to use:
           protecting core player-experience systems during late-stage iteration. Due to the lack of the Checkpoints, I added some things , which made player doesn't get lost and play the game without dieing so many time. Even after some playtests player loved to play the game again, to experince the jumpscares.
         </p>
       </div>
+<!-- ================= Before / After Design Comparisons ================= -->
+<div style="margin-top:40px;">
+  <h3>Before & After — Design Iterations</h3>
+  <p class="muted" style="margin-top:6px;">
+    Key design problems identified during development and how they were solved through iteration.
+  </p>
+
+  <!-- ===== Comparison 1 ===== -->
+  <div class="card" style="margin-top:18px;">
+    <h4>Puzzle Flow & Spatial Dependency</h4>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;">
+      <div>
+        <div class="muted">Before</div>
+        <img src="asset/Image/Tatya/before_puzzle_flow.png"
+          style="width:100%;border-radius:10px;margin-top:6px;">
+      </div>
+
+      <div>
+        <div class="muted">After</div>
+        <img src="asset/Image/Tatya/after_puzzle_flow.png"
+          style="width:100%;border-radius:10px;margin-top:6px;">
+      </div>
+    </div>
+
+    <p style="margin-top:10px;">
+      <strong>Problem:</strong> Puzzle logic depended on exact room layouts, causing failures when the environment changed.
+      <br>
+      <strong>Design Decision:</strong> Reworked puzzle logic to reduce strict spatial dependency.
+      <br>
+      <strong>Result:</strong> Puzzles remained solvable while preserving challenge and intent.
+    </p>
+  </div>
+
+  <!-- ===== Comparison 2 ===== -->
+  <div class="card" style="margin-top:22px;">
+    <h4>Player Flow & Difficulty Curve</h4>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;">
+      <div>
+        <div class="muted">Before</div>
+        <img src="asset/Image/Tatya/before_player_flow.png"
+          style="width:100%;border-radius:10px;margin-top:6px;">
+      </div>
+
+      <div>
+        <div class="muted">After</div>
+        <img src="asset/Image/Tatya/after_player_flow.png"
+          style="width:100%;border-radius:10px;margin-top:6px;">
+      </div>
+    </div>
+
+    <p style="margin-top:10px;">
+      <strong>Problem:</strong> Early failures caused frustration and forced full restarts.
+      <br>
+      <strong>Design Decision:</strong> Adjusted early pacing and puzzle sequencing.
+      <br>
+      <strong>Result:</strong> Improved onboarding and smoother difficulty progression.
+    </p>
+  </div>
+
+  <!-- ===== Comparison 3 ===== -->
+  <div class="card" style="margin-top:22px;">
+    <h4>Riddle Clarity & Player Feedback</h4>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;">
+      <div>
+        <div class="muted">Before</div>
+        <img src="asset/Image/Tatya/before_riddle.png"
+          style="width:100%;border-radius:10px;margin-top:6px;">
+      </div>
+
+      <div>
+        <div class="muted">After</div>
+        <img src="asset/Image/Tatya/after_riddle.png"
+          style="width:100%;border-radius:10px;margin-top:6px;">
+      </div>
+    </div>
+
+    <p style="margin-top:10px;">
+      <strong>Problem:</strong> Riddles were unclear and lacked feedback, leading to guessing.
+      <br>
+      <strong>Design Decision:</strong> Simplified language and added clearer player feedback.
+      <br>
+      <strong>Result:</strong> Players understood intent and progressed with confidence.
+    </p>
+  </div>
+</div>
+<!-- ==================================================================== -->
 
       <!-- ================= Gallery ================= -->
       <div class="modal-gallery" style="margin-top:20px;">
