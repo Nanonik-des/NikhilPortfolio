@@ -681,25 +681,159 @@ How to use:
 </div>
 <!-- ================= END ================= -->
 
-  <div id="modal-be-my-guest" class="modal-backdrop" aria-hidden="true" onclick="backdropClick(event,'be-my-guest')">
-    <div class="modal" role="dialog" aria-labelledby="modal-be-my-guest-title">
-      <div class="modal-header">
-        <div class="modal-title" id="modal-be-my-guest-title">Be My Guest — Coming Soon</div>
-        <button class="close-btn" onclick="closeModal('be-my-guest')">✕</button>
+ <div id="modal-dieaway" class="modal-backdrop" aria-hidden="true" onclick="backdropClick(event,'dieaway')">
+  <div class="modal" role="dialog" aria-labelledby="modal-dieaway-title">
+
+    <div class="modal-header">
+      <div class="modal-title" id="modal-dieaway-title">
+        Die Away — Puzzle Strategy
       </div>
-      <div class="modal-body">
-        <div class="muted">Design Lead · Talk-show simulation</div>
-        <p style="margin-top:10px">Be My Guest is a talk-show simulation where you manage guests, TRP, and live segments. Concept art and early prototypes shown here.</p>
-        <div class="modal-gallery">
-          <img src="asset/Image/placeholder-be-my-guest-1.png" alt="Be My Guest 1" onclick="openImage(this.src)">
-          <img src="asset/Image/placeholder-be-my-guest-2.png" alt="Be My Guest 2" onclick="openImage(this.src)">
-        </div>
-        <div class="links" style="margin-top:12px">
-          <a class="cta" href="#" target="_blank">Design Notes</a>
+      <button class="close-btn" onclick="closeModal('dieaway')">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="muted">
+        Game Designer · Systems Design · Puzzle Design
+      </div>
+
+      <!-- ================= Game Brief ================= -->
+
+      <h3 style="margin-top:20px;">Game Brief</h3>
+
+      <p style="margin-top:8px;">
+        Die Away is a grid-based puzzle strategy game where the player controls
+        a dice that moves according to the number shown on its top face.
+        Every movement changes the dice orientation, affecting future movement possibilities.
+      </p>
+
+      <p style="margin-top:10px;">
+        The idea originally came from a sudden prototype concept phase where I planned
+        multiple experimental puzzle games. At that time, only two prototypes were developed,
+        and Die Away remained unfinished. Later, when the opportunity came,
+        I revisited the concept and developed the game with a team within 3 days.
+      </p>
+
+      <!-- ================= Responsibilities ================= -->
+
+      <h3 style="margin-top:24px;">Responsibilities</h3>
+
+      <ul style="margin-top:10px; padding-left:18px; line-height:1.7">
+        <li>Designed the core dice-orientation gameplay mechanic.</li>
+        <li>Created movement and puzzle logic systems.</li>
+        <li>Designed gameplay flow and progression structure.</li>
+        <li>Worked on UX and readability for puzzle interaction.</li>
+        <li>Collaborated with the team during rapid 3-day production.</li>
+      </ul>
+
+      <!-- ================= First Idea ================= -->
+
+      <h3 style="margin-top:28px;">First Idea</h3>
+
+      <p style="margin-top:10px;">
+        The original concept focused on minimalistic puzzle-solving using a dice as the
+        main movement system. The early design explored how orientation itself could become
+        the puzzle, where every move directly affects future possibilities.
+      </p>
+
+      <div class="modal-gallery">
+        <img src="asset/Image/DieAway/Idea1.png" alt="First Idea">
+      </div>
+
+      <!-- ================= Design Iteration ================= -->
+
+      <h3 style="margin-top:28px;">Final Iteration</h3>
+
+      <p style="margin-top:10px;">
+        During development, the design evolved into a cleaner and more readable experience.
+        The final version introduced:
+      </p>
+
+      <ul style="margin-top:10px; padding-left:18px; line-height:1.7">
+        <li>Path preview system</li>
+        <li>Improved move readability</li>
+        <li>Minimal neon-inspired visual style</li>
+        <li>Strategic movement planning</li>
+        <li>Clear progression and level flow</li>
+      </ul>
+
+      <div class="modal-gallery">
+        <img src="asset/Image/DieAway/FinalIteration.png" alt="Final Iteration">
+      </div>
+
+      <!-- ================= Before & After ================= -->
+
+      <h3 style="margin-top:28px;">Before & After — UI Evolution</h3>
+
+      <p style="margin-top:10px;">
+        The UI and visual readability evolved significantly during development.
+        The final design focused on making puzzle information clearer,
+        cleaner, and easier for players to understand quickly.
+      </p>
+
+      <div class="modal-gallery">
+        <img src="asset/Image/DieAway/Comparison1.png" alt="Comparison 1">
+        <img src="asset/Image/DieAway/Comparison2.png" alt="Comparison 2">
+        <img src="asset/Image/DieAway/Comparison3.png" alt="Comparison 3">
+      </div>
+
+      <!-- ================= Gameplay Video ================= -->
+
+      <h3 style="margin-top:32px;">Gameplay Showcase</h3>
+
+      <p class="muted" style="margin-top:6px;">
+        Gameplay footage showcasing the movement system,
+        puzzle mechanics, and level interaction.
+      </p>
+
+      <div style="margin-top:18px;">
+        <div style="
+          position:relative;
+          padding-bottom:56.25%;
+          height:0;
+          overflow:hidden;
+          border-radius:10px;
+          box-shadow:0 8px 30px rgba(0,0,0,0.2);
+        ">
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="Die Away Gameplay"
+            frameborder="0"
+            allowfullscreen
+            style="
+              position:absolute;
+              top:0;
+              left:0;
+              width:100%;
+              height:100%;
+            ">
+          </iframe>
         </div>
       </div>
+
+      <!-- ================= Gallery ================= -->
+
+      <h3 style="margin-top:32px;">Gallery</h3>
+
+      <div class="modal-gallery">
+        <img src="asset/Image/DieAway/Gallery1.png" alt="Gallery 1">
+        <img src="asset/Image/DieAway/Gallery2.png" alt="Gallery 2">
+        <img src="asset/Image/DieAway/Gallery3.png" alt="Gallery 3">
+      </div>
+
+      <!-- ================= Links ================= -->
+
+      <div class="links" style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap">
+        <a class="btn-ghost"
+           href="asset/PDF/DieAway_GDD.pdf"
+           download>
+           Design Doc (PDF)
+        </a>
+      </div>
+
     </div>
   </div>
+</div>f
 
   <!-- Image lightbox -->
   <div id="lightbox" class="modal-backdrop" aria-hidden="true" onclick="closeLightbox()">
